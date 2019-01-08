@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:XamarinFormsShell" 
     RouteScheme="app" 
-    RouteHost="microsoft.com" 
-    Route="newapp" 
+    RouteHost="wibcilabs.com" 
+    Route="shellapp" 
     x:Class="XamarinFormsShell.AppShell">
 
 	<ShellItem Title="Home">
