@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/XamarinFormsShell/v15
+/XamarinFormsShell/XamarinFormsShell/obj
+/XamarinFormsShell/XamarinFormsShell.Android/obj
+/XamarinFormsShell/XamarinFormsShell.iOS/obj
+/XamarinFormsShell/XamarinFormsShell.UWP/obj
