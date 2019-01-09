@@ -143,8 +143,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Prism.Core">
+      <Version>7.1.0.431</Version>
+    </PackageReference>
+    <PackageReference Include="Splat">
+      <Version>5.3.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.8055-pre1" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinFormsShell\XamarinFormsShell.csproj">

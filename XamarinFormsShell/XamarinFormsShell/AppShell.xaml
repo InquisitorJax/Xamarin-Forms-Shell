@@ -1,18 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:local="clr-namespace:XamarinFormsShell" 
+	xmlns:pages="clr-namespace:XamarinFormsShell.Pages" 
+	xmlns:views="clr-namespace:XamarinFormsShell.Views" 
+	xmlns:navigation="clr-namespace:XamarinFormsShell.Navigation" 	   
     RouteScheme="app" 
     RouteHost="wibcilabs.com" 
     Route="shellapp" 
     x:Class="XamarinFormsShell.AppShell">
 
+	<Shell.FlyoutHeader>
+		<views:MenuHeader />
+	</Shell.FlyoutHeader>
+
 	<ShellItem Title="Home">
 		<ShellSection>
-			<ShellContent>
-				<local:MainPage />
+			<ShellContent Route="{x:Static navigation:NavigationRoutes.MainPage}">
+				<pages:MainPage />
 			</ShellContent>
 		</ShellSection>
 	</ShellItem>
 
+	<ShellItem Title="About">
+		<ShellSection>
+			<!-- don't create page on startup, only when navigated to (using ContentTemplate) -->
+			<ShellContent Route="{x:Static navigation:NavigationRoutes.AboutPage}"
+						  ContentTemplate="{DataTemplate pages:AboutPage}"/>
+		</ShellSection>
+	</ShellItem>
+	<!--<ShellContent Title="Item"
+				  Route="{x:Static navigation:NavigationRoutes.ItemPage}"
+                  ContentTemplate="{DataTemplate pages:ItemPage}" />-->
 </Shell>

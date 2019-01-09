@@ -1,20 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFormsShell.Navigation;
+using XamarinFormsShell.ViewModels;
 
 namespace XamarinFormsShell.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ItemPage : ContentPage
+	[QueryProperty(nameof(IdParameter), NavigationParameters.Id)]
+	public partial class ItemPage : MvvmContentPage
 	{
-		public ItemPage ()
+		public ItemPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
+
+		private ItemViewModel MyViewModel => (ItemViewModel)ViewModel;
+
+		public string IdParameter
+		{
+			get
+			{
+				return MyViewModel.ItemId;
+			}
+			set
+			{
+				MyViewModel.ItemId = value;
+			}
+		}
+
+		protected override string NavigationRoute => NavigationRoutes.ItemPage;
 	}
 }

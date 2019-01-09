@@ -2,12 +2,12 @@
 <pages:MvvmContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
-             x:Class="XamarinFormsShell.Pages.ItemPage">
+             x:Class="XamarinFormsShell.Pages.AboutPage">
     <ContentPage.Content>
         <StackLayout>
-			<Label Text="{Binding ItemId, StringFormat='Item Id{0}'}" 
-				   HorizontalOptions="CenterAndExpand" 
-				   VerticalOptions="CenterAndExpand"/>
-		</StackLayout>
+            <Label Text="Xamarin Forms Shell - ABOUT"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
     </ContentPage.Content>
 </pages:MvvmContentPage>

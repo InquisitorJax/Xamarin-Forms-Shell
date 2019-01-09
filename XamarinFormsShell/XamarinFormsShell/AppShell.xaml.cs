@@ -7,7 +7,7 @@ namespace XamarinFormsShell
 	{
 		public AppShell()
 		{
-			InitializeComponent();
+			InitializeComponent();			
 		}
 	}
 }
