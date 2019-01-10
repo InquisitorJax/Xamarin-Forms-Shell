@@ -8,6 +8,8 @@
             <Label Text="Xamarin Forms Shell - ABOUT"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+			<Button Text="Done"
+					Command="{Binding CloseCommand}"/>
+		</StackLayout>
     </ContentPage.Content>
 </pages:MvvmContentPage>

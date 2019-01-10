@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
 using System;
+using System.Collections.Generic;
+using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.ViewModels
 {
@@ -12,7 +14,13 @@ namespace XamarinFormsShell.ViewModels
 
 		private void NavigateToItemPage()
 		{
-			Navigation.ItemPage("123");
+			string id = "123";
+			var args = new Dictionary<string, string>
+			{
+				{  NavigationParameters.Id, id }
+			};
+
+			Navigation.NavigateToAsync(NavigationRoutes.ItemPage, args);
 		}
 
 		public DelegateCommand NavigateToItemPageCommand { get; private set; }

@@ -9,9 +9,9 @@ namespace XamarinFormsShell.Navigation
 {
 	public interface INavigationService
 	{
-		void ItemPage(string itemID);
-
 		void Initialize(NavigableElement navigationRootPage);
+
+		Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null);
 
 		Task GoBackAsync(bool fromModal = false);
 	}
@@ -69,7 +69,7 @@ namespace XamarinFormsShell.Navigation
 			}
 		}
 
-		internal async Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null)
+		public async Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null)
 		{
 
 			IView view = App.IoC.Resolve<IView>(navigationRoute);

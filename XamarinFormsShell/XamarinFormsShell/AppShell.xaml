@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+<Shell x:Name="shell"
+	xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	xmlns:pages="clr-namespace:XamarinFormsShell.Pages" 
 	xmlns:views="clr-namespace:XamarinFormsShell.Views" 
@@ -13,22 +14,32 @@
 		<views:MenuHeader />
 	</Shell.FlyoutHeader>
 
-	<ShellItem Title="Home">
+	<ShellItem Title="Home"
+			   Route="{x:Static navigation:NavigationRoutes.MainPage}">
+		<ShellContent ContentTemplate="{DataTemplate pages:MainPage}" />
+	</ShellItem>
+
+	<MenuItem
+		BindingContext="{x:Reference shell}"
+		Command="{Binding BindingContext.NavigateToAboutPageCommand}"		
+		Text="About" />
+
+	<!--<ShellItem Title="Home">
 		<ShellSection>
-			<ShellContent Route="{x:Static navigation:NavigationRoutes.MainPage}">
+			<ShellContent >
 				<pages:MainPage />
 			</ShellContent>
 		</ShellSection>
-	</ShellItem>
+	</ShellItem>-->
 
-	<ShellItem Title="About">
+	<!--<ShellItem Title="About">
 		<ShellSection>
-			<!-- don't create page on startup, only when navigated to (using ContentTemplate) -->
+			--><!-- don't create page on startup, only when navigated to (using ContentTemplate) --><!--
 			<ShellContent Route="{x:Static navigation:NavigationRoutes.AboutPage}"
 						  ContentTemplate="{DataTemplate pages:AboutPage}"/>
 		</ShellSection>
 	</ShellItem>
 	<ShellContent Title="Item"
 				  Route="{x:Static navigation:NavigationRoutes.ItemPage}"
-                  ContentTemplate="{DataTemplate pages:ItemPage}" />
+                  ContentTemplate="{DataTemplate pages:ItemPage}" />-->
 </Shell>

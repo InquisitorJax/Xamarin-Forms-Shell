@@ -2,6 +2,7 @@
 using Xamarin.Forms.Xaml;
 using XamarinFormsShell.Core;
 using XamarinFormsShell.Navigation;
+using XamarinFormsShell.Pages;
 using XamarinFormsShell.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -25,10 +26,16 @@ namespace XamarinFormsShell
 		{
 			registry.RegisterSingleton<NavigationService, INavigationService>();
 
+			//register views that need to be navigated with NavigateToAsync() ie. Not Root Shell pages
+			registry.Register<ItemPage, IView>(NavigationRoutes.ItemPage);
+			registry.Register<AboutPage, IView>(NavigationRoutes.AboutPage);
+
 			//register view models for views
 			registry.Register<MainViewModel, IViewModel>(NavigationRoutes.MainPage);
 			registry.Register<ItemViewModel, IViewModel>(NavigationRoutes.ItemPage);
 			registry.Register<AboutViewModel, IViewModel>(NavigationRoutes.AboutPage);
+
+			
 		}
 
 		public static INavigationService Navigation => IoC.Resolve<INavigationService>();

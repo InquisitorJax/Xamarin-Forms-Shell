@@ -11,6 +11,7 @@ namespace XamarinFormsShell
 
 		public AppShell()
 		{
+			BindingContext = new AppShellViewModel();
 			InitializeComponent();			
 		}
 
