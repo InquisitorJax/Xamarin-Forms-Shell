@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamarinFormsShell.Pages;
 
@@ -9,7 +11,9 @@ namespace XamarinFormsShell.Navigation
 	{
 		void ItemPage(string itemID);
 
-		void Initialize();
+		void Initialize(NavigableElement navigationRootPage);
+
+		Task GoBackAsync(bool fromModal = false);
 	}
 
 	public class NavigationService : INavigationService
@@ -21,44 +25,86 @@ namespace XamarinFormsShell.Navigation
 		private const string ROUTE_BASE = "shellapp";
 
 		private const string ROUTE_MARKER = "[ROUTE]";
-		private string _navTemplate = $"{ROUTE_SCHEME}://{ROUTE_HOST}/{ROUTE_BASE}/{ROUTE_MARKER}";
+		private string _shellNavTemplate = $"{ROUTE_SCHEME}://{ROUTE_HOST}/{ROUTE_BASE}/{ROUTE_MARKER}";
 
-		public NavigationService()
+		private NavigableElement _navigationRoot;
+
+		private AppShell _shell => App.Current.MainPage as AppShell;
+
+		private NavigableElement NavigationRoot
 		{
-			RegisterDynamicPageRoutes();
+			get => GetShellSection(_navigationRoot) ?? _navigationRoot;
+			set => _navigationRoot = value;
 		}
 
-		private void NavigationService_Navigated(object sender, ShellNavigatedEventArgs e)
+		private void Shell_Navigated(object sender, ShellNavigatedEventArgs e)
 		{
 			Debug.WriteLine($"Navigated to {e.Current.Location} from {e.Previous?.Location} navigation type{e.Source.ToString()}");
 		}
 
-		private void NavigationService_Navigating(object sender, ShellNavigatingEventArgs e)
+		private void Shell_Navigating(object sender, ShellNavigatingEventArgs e)
 		{
 			//TODO: Hook e.Cancel into viewmodel			
 		}
 
 		public void ItemPage(string id)
 		{
-			string route = _navTemplate.Replace(ROUTE_MARKER, NavigationRoutes.ItemPage);
+			string route = _shellNavTemplate.Replace(ROUTE_MARKER, NavigationRoutes.ItemPage);
 			route += $"?{NavigationParameters.Id}={id}";
 
 			Debug.WriteLine($"Navigating to {route}");
 
-			(App.Current.MainPage as Shell).GoToAsync(route);
+			_shell.GoToAsync(route);
 		}
 
-		public void GoBack()
+		public async Task GoBackAsync(bool fromModal = false)
 		{
-			//TODO: Implement
+			if (!fromModal)
+			{
+				await NavigationRoot.Navigation.PopAsync();
+			}
+			else
+			{
+				await NavigationRoot.Navigation.PopModalAsync();
+			}
 		}
 
-		private void RegisterDynamicPageRoutes()
+		internal async Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null)
 		{
-			Routing.RegisterRoute(NavigationRoutes.ItemPage, typeof(ItemPage));
+
+			IView view = App.IoC.Resolve<IView>(navigationRoute);
+			var page = view as Page;
+
+			if (page == null)
+			{
+				Debug.WriteLine($"Could not resolve view for {navigationRoute}. Make sure it's registered with IoC");
+				return;
+			}
+
+			options = options ?? NavigationOptions.Default();
+
+			if (options.CloseFlyout)
+			{
+				await _shell.CloseFlyoutAsync();
+			}
+
+			if (options.ForgetCurrentPage)
+			{
+				var currentPage = NavigationRoot.Navigation.NavigationStack.LastOrDefault();
+				NavigationRoot.Navigation.InsertPageBefore((Page)view, currentPage);
+			}
+
+			if (!options.Modal)
+			{
+				await NavigationRoot.Navigation.PushAsync(page, options.Animated).ConfigureAwait(false);
+			}
+			else
+			{
+				await NavigationRoot.Navigation.PushModalAsync(page, options.Animated).ConfigureAwait(false);
+			}
 		}
 
-		public void Initialize()
+		public void Initialize(NavigableElement navigationRootPage)
 		{
 			if (_initialized)
 			{
@@ -66,8 +112,36 @@ namespace XamarinFormsShell.Navigation
 			}
 
 			_initialized = true;
-			(App.Current.MainPage as Shell).Navigating += NavigationService_Navigating;
-			(App.Current.MainPage as Shell).Navigated += NavigationService_Navigated;
+			NavigationRoot = navigationRootPage;
+			_shell.Navigating += Shell_Navigating;
+			_shell.Navigated += Shell_Navigated;
+		}
+
+		// Provides a navigatable section for elements which aren't explicitly defined within the Shell. For example,
+		// if it's accessed from the fly-out through a MenuItem but it doesn't belong to any section
+		internal static ShellSection GetShellSection(Element element)
+		{
+			if (element == null)
+			{
+				return null;
+			}
+
+			var parent = element;
+			var parentSection = parent as ShellSection;
+
+			while (parentSection == null && parent != null)
+			{
+				parent = parent.Parent;
+				parentSection = parent as ShellSection;
+			}
+
+			return parentSection;
+		}
+
+
+		private async Task NavigateAsync(string navigationRoute, bool modal = false)
+		{
+			await _shell.CloseFlyoutAsync();
 		}
 	}
 }

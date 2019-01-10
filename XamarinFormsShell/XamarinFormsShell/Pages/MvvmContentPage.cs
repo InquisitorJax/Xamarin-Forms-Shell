@@ -16,5 +16,12 @@ namespace XamarinFormsShell.Pages
 
 		protected abstract string NavigationRoute { get; }
 
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+			ViewModel.InitializeAsync();
+		}
+
 	}
 }

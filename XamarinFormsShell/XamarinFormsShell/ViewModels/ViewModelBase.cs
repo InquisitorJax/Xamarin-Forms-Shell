@@ -1,4 +1,5 @@
 ﻿using Prism.Mvvm;
+using System.Threading.Tasks;
 using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.ViewModels
@@ -7,5 +8,8 @@ namespace XamarinFormsShell.ViewModels
 	{
 
 		protected INavigationService Navigation => App.Navigation;
+
+		public virtual Task InitializeAsync() => Task.CompletedTask;
+
 	}
 }

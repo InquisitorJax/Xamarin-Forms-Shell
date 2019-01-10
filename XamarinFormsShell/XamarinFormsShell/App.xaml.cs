@@ -18,9 +18,7 @@ namespace XamarinFormsShell
 
 			InitializeComponent();
 
-			MainPage = new AppShell();
-
-			Navigation.Initialize();
+			MainPage = new AppShell();			
 		}
 
 		private void RegisterDependencies(IDependencyRegistry registry)

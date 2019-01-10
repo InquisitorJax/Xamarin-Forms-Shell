@@ -28,7 +28,7 @@
 						  ContentTemplate="{DataTemplate pages:AboutPage}"/>
 		</ShellSection>
 	</ShellItem>
-	<!--<ShellContent Title="Item"
+	<ShellContent Title="Item"
 				  Route="{x:Static navigation:NavigationRoutes.ItemPage}"
-                  ContentTemplate="{DataTemplate pages:ItemPage}" />-->
+                  ContentTemplate="{DataTemplate pages:ItemPage}" />
 </Shell>

@@ -7,6 +7,8 @@ namespace XamarinFormsShell.Pages
 		public MainPage()
 		{
 			InitializeComponent();
+
+			App.Navigation.Initialize(this);
 		}
 
 		protected override string NavigationRoute => NavigationRoutes.MainPage;
