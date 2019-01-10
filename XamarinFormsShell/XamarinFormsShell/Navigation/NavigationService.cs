@@ -77,7 +77,8 @@ namespace XamarinFormsShell.Navigation
 
 			if (page == null)
 			{
-				Debug.WriteLine($"Could not resolve view for {navigationRoute}. Make sure it's registered with IoC");
+				Debug.WriteLine($"Could not resolve view for {navigationRoute}: Assuming this is a shell route...");
+				//TODO: navigate with shell -> _shell.GotoAsync(navigationRoute); + turn args dictionary into query string
 				return;
 			}
 

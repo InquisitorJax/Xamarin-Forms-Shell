@@ -1,4 +1,5 @@
 ﻿using Splat;
+using System.Diagnostics;
 
 namespace XamarinFormsShell.Core
 {
@@ -11,7 +12,14 @@ namespace XamarinFormsShell.Core
 	{
 		public T Resolve<T>(string key = null)
 		{
-			return Locator.Current.GetService<T>(key);
+			var instance = Locator.Current.GetService<T>(key);
+
+			if (instance == null)
+			{
+				Debug.WriteLine($"Could not resolve {typeof(T).Name} for {key}");
+			}
+
+			return instance;
 		}
 	}
 }

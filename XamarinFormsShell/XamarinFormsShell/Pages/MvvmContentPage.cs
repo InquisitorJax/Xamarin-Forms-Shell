@@ -12,7 +12,7 @@ namespace XamarinFormsShell.Pages
 			BindingContext = ViewModel;
 		}
 
-		public IViewModel ViewModel { get; private set; }
+		public IViewModel ViewModel { get; }
 
 		protected abstract string NavigationRoute { get; }
 

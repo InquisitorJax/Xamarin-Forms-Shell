@@ -1,0 +1,2 @@
+﻿1) Navigation parameters (+ consistent navigation)
+2) Login View before shell
