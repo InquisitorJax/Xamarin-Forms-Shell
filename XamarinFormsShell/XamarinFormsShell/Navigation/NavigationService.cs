@@ -47,14 +47,13 @@ namespace XamarinFormsShell.Navigation
 			//TODO: Hook e.Cancel into viewmodel			
 		}
 
-		public void ItemPage(string id)
+		private async Task NavigateToShellRootAsync(string navigationRoute, Dictionary<string, string> args, bool animated = true)
 		{
-			string route = _shellNavTemplate.Replace(ROUTE_MARKER, NavigationRoutes.ItemPage);
-			route += $"?{NavigationParameters.Id}={id}";
-
-			Debug.WriteLine($"Navigating to {route}");
-
-			_shell.GoToAsync(route);
+			string route = _shellNavTemplate.Replace(ROUTE_MARKER, navigationRoute);
+			var queryString = args.AsQueryString();
+			route = route + queryString;
+			Debug.WriteLine($"Shell Navigating to {route}");
+			await _shell.GoToAsync(route, animated);
 		}
 
 		public async Task GoBackAsync(bool fromModal = false)
@@ -75,14 +74,16 @@ namespace XamarinFormsShell.Navigation
 			IView view = App.IoC.Resolve<IView>(navigationRoute);
 			var page = view as Page;
 
+			options = options ?? NavigationOptions.Default();
+
 			if (page == null)
 			{
 				Debug.WriteLine($"Could not resolve view for {navigationRoute}: Assuming this is a shell route...");
-				//TODO: navigate with shell -> _shell.GotoAsync(navigationRoute); + turn args dictionary into query string
+				await NavigateToShellRootAsync(navigationRoute, args, options.Animated);
 				return;
 			}
 
-			options = options ?? NavigationOptions.Default();
+			view.ViewModel.NavigationArgs = args;
 
 			if (options.CloseFlyout)
 			{
@@ -137,12 +138,6 @@ namespace XamarinFormsShell.Navigation
 			}
 
 			return parentSection;
-		}
-
-
-		private async Task NavigateAsync(string navigationRoute, bool modal = false)
-		{
-			await _shell.CloseFlyoutAsync();
 		}
 	}
 }

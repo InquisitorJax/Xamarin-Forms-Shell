@@ -27,7 +27,7 @@ namespace XamarinFormsShell
 			registry.RegisterSingleton<NavigationService, INavigationService>();
 
 			//register views that need to be navigated with NavigateToAsync() ie. Not Root Shell pages
-			registry.Register<ItemPage, IView>(NavigationRoutes.ItemPage);
+			registry.Register<ItemPage, IView>(NavigationRoutes.ItemPage);			
 			registry.Register<AboutPage, IView>(NavigationRoutes.AboutPage);
 
 			//register view models for views

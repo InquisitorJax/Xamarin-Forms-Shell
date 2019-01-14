@@ -34,12 +34,12 @@
 
 	<!--<ShellItem Title="About">
 		<ShellSection>
-			--><!-- don't create page on startup, only when navigated to (using ContentTemplate) --><!--
+			 don't create page on startup, only when navigated to (using ContentTemplate) 
 			<ShellContent Route="{x:Static navigation:NavigationRoutes.AboutPage}"
 						  ContentTemplate="{DataTemplate pages:AboutPage}"/>
 		</ShellSection>
-	</ShellItem>
-	<ShellContent Title="Item"
+	</ShellItem>-->
+	<!--<ShellContent Title="Item"
 				  Route="{x:Static navigation:NavigationRoutes.ItemPage}"
                   ContentTemplate="{DataTemplate pages:ItemPage}" />-->
 </Shell>

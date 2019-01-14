@@ -1,5 +1,4 @@
 ﻿using Prism.Commands;
-using System;
 using System.Windows.Input;
 using XamarinFormsShell.Navigation;
 using XamarinFormsShell.ViewModels;

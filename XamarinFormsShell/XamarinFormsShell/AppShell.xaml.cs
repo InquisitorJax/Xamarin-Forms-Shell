@@ -11,8 +11,9 @@ namespace XamarinFormsShell
 
 		public AppShell()
 		{
+
 			BindingContext = new AppShellViewModel();
-			InitializeComponent();			
+			InitializeComponent();
 		}
 
 		internal async Task CloseFlyoutAsync()
