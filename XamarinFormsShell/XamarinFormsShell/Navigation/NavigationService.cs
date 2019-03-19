@@ -90,12 +90,6 @@ namespace XamarinFormsShell.Navigation
 				await _shell.CloseFlyoutAsync();
 			}
 
-			if (options.ForgetCurrentPage)
-			{
-				var currentPage = NavigationRoot.Navigation.NavigationStack.LastOrDefault();
-				NavigationRoot.Navigation.InsertPageBefore((Page)view, currentPage);
-			}
-
 			if (!options.Modal)
 			{
 				await NavigationRoot.Navigation.PushAsync(page, options.Animated).ConfigureAwait(false);
