@@ -152,9 +152,9 @@
       <Version>7.1.0.431</Version>
     </PackageReference>
     <PackageReference Include="Splat">
-      <Version>6.1.7</Version>
+      <Version>7.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.232914-pre6" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.250467-pre7" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
