@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+	x:Class="XamarinFormsShell.Views.CustomNavigationBar"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+	<ContentView.Content>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<Button
+				BackgroundColor="White"
+				HeightRequest="35"
+				Text="left"
+				WidthRequest="55" />
+
+			<Label
+				Grid.Column="1"
+				HorizontalOptions="Center"
+				Text="{Binding Title}" />
+
+			<StackLayout Grid.Column="2" Orientation="Horizontal">
+				<Button Text="R1" />
+				<Button Text="R2" />
+			</StackLayout>
+		</Grid>
+	</ContentView.Content>
+</ContentView>

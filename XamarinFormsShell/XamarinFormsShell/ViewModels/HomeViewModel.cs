@@ -1,15 +1,15 @@
 ﻿using Prism.Commands;
-using System;
 using System.Collections.Generic;
 using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.ViewModels
 {
-	public class MainViewModel : ViewModelBase
+	public class HomeViewModel : ViewModelBase
 	{
-		public MainViewModel()
+		public HomeViewModel()
 		{
 			NavigateToItemPageCommand = new DelegateCommand(NavigateToItemPage);
+			Title = "Home Page";
 		}
 
 		private void NavigateToItemPage()
@@ -21,6 +21,14 @@ namespace XamarinFormsShell.ViewModels
 			};
 
 			Navigation.NavigateToAsync(NavigationRoutes.ItemPage, args);
+		}
+
+		private string _title;
+
+		public string Title
+		{
+			get { return _title; }
+			set { SetProperty(ref _title, value); }
 		}
 
 		public DelegateCommand NavigateToItemPageCommand { get; private set; }

@@ -7,7 +7,7 @@
 		<StackLayout>
 			<Label
 				HorizontalOptions="CenterAndExpand"
-				Text="Welcome to Xamarin.Forms!"
+				Text="DISCOVER THE FORMS SHELL!"
 				VerticalOptions="CenterAndExpand" />
 		</StackLayout>
 	</ContentPage.Content>

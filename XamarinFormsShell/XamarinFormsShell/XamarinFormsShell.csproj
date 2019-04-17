@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="7.1.0.431" />
-    <PackageReference Include="Splat" Version="7.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.250467-pre7" />
+    <PackageReference Include="Splat" Version="7.0.8" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.304370-pre8" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +42,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\SearchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CustomNavigationBar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MenuHeader.xaml">
