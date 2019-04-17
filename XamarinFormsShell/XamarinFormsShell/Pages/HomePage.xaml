@@ -5,9 +5,9 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
 	xmlns:views="clr-namespace:XamarinFormsShell.Views">
-	<NavigationPage.TitleView>
+	<Shell.TitleView>
 		<views:CustomNavigationBar />
-	</NavigationPage.TitleView>
+	</Shell.TitleView>
 
 	<StackLayout Margin="10,0,10,20">
 		<!--  Place new controls here  -->

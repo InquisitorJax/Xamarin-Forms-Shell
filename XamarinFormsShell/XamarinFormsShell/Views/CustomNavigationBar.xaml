@@ -5,17 +5,21 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 	<ContentView.Content>
 		<Grid>
+			<Grid.Resources>
+				<Style TargetType="Button">
+					<Setter Property="CornerRadius" Value="24" />
+					<Setter Property="WidthRequest" Value="48" />
+					<Setter Property="BackgroundColor" Value="White" />
+					<Setter Property="Margin" Value="5" />
+				</Style>
+			</Grid.Resources>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
-			<Button
-				BackgroundColor="White"
-				HeightRequest="35"
-				Text="left"
-				WidthRequest="55" />
+			<Button Text="L1" />
 
 			<Label
 				Grid.Column="1"
