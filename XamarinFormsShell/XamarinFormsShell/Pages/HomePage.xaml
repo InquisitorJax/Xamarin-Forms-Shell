@@ -17,7 +17,7 @@
 			VerticalOptions="CenterAndExpand" />
 
 		<Button
-			BackgroundColor="#FF3500"
+			BackgroundColor="#FF5500"
 			Command="{Binding NavigateToItemPageCommand}"
 			CornerRadius="25"
 			Text="Navigate to Item Page"
