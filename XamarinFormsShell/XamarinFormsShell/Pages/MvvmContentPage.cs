@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Collections.Generic;
+using Xamarin.Forms;
 using XamarinFormsShell.ViewModels;
 
 namespace XamarinFormsShell.Pages
@@ -12,6 +13,8 @@ namespace XamarinFormsShell.Pages
 			BindingContext = ViewModel;
 		}
 
+		public Dictionary<string, string> NavigationArgs { get; set; }
+
 		public IViewModel ViewModel { get; }
 
 		protected abstract string NavigationRoute { get; }
@@ -19,8 +22,7 @@ namespace XamarinFormsShell.Pages
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-
-			ViewModel.InitializeAsync();
+			ViewModel.InitializeAsync(NavigationArgs);
 		}
 
 	}

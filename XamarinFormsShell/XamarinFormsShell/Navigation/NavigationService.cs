@@ -83,7 +83,10 @@ namespace XamarinFormsShell.Navigation
 				return;
 			}
 
-			view.ViewModel.NavigationArgs = args;
+			if (page is MvvmContentPage mvvmPage)
+			{
+				mvvmPage.NavigationArgs = args;
+			}
 
 			if (options.CloseFlyout)
 			{

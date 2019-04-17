@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:MvvmContentPage
+	x:Class="XamarinFormsShell.Pages.HomePage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:pages="clr-namespace:XamarinFormsShell.Pages">
+
+	<StackLayout Margin="10,0,10,20">
+		<!--  Place new controls here  -->
+		<Label
+			HorizontalOptions="Center"
+			Text="Welcome to Xamarin.Forms!"
+			VerticalOptions="CenterAndExpand" />
+
+		<Button
+			BackgroundColor="#FF3500"
+			Command="{Binding NavigateToItemPageCommand}"
+			CornerRadius="25"
+			Text="Navigate to Item Page"
+			TextColor="White" />
+
+	</StackLayout>
+
+</pages:MvvmContentPage>

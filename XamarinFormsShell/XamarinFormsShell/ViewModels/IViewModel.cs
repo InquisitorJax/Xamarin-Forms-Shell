@@ -5,8 +5,6 @@ namespace XamarinFormsShell.ViewModels
 {
 	public interface IViewModel
 	{
-		Task InitializeAsync();
-
-		Dictionary<string, string> NavigationArgs { get; set; }
+		Task InitializeAsync(Dictionary<string, string> args);		
 	}
 }

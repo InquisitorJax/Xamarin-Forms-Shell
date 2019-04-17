@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.ViewModels
@@ -13,11 +14,11 @@ namespace XamarinFormsShell.ViewModels
 			set { SetProperty(ref _itemId, value); }
 		}
 
-		public override Task InitializeAsync()
+		public override Task InitializeAsync(Dictionary<string, string> args)
 		{
-			if (NavigationArgs?.Count > 0 && NavigationArgs.ContainsKey(NavigationParameters.Id))
+			if (args?.Count > 0 && args.ContainsKey(NavigationParameters.Id))
 			{
-				ItemId = NavigationArgs[NavigationParameters.Id] + "Detail Page";
+				ItemId = args[NavigationParameters.Id] + "Detail Page";
 			}
 
 			return Task.CompletedTask;

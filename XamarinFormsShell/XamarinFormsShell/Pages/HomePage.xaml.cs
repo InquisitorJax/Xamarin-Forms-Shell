@@ -2,15 +2,15 @@
 
 namespace XamarinFormsShell.Pages
 {
-	public partial class MainPage : MvvmContentPage
+	public partial class HomePage : MvvmContentPage
 	{
-		public MainPage()
+		public HomePage()
 		{
 			InitializeComponent();
 
 			App.Navigation.Initialize(this);
 		}
 
-		protected override string NavigationRoute => NavigationRoutes.MainPage;
+		protected override string NavigationRoute => NavigationRoutes.HomePage;
 	}
 }

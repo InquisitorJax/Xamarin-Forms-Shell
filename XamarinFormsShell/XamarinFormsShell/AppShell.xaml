@@ -10,36 +10,40 @@
 	Route="shellapp"
 	RouteHost="wibcilabs.com"
 	RouteScheme="app">
+	<Shell.Resources>
+		<ResourceDictionary>
+			<Style TargetType="ShellItem">
+				<Setter Property="Shell.ShellBackgroundColor" Value="MediumPurple" />
+				<Setter Property="Shell.ShellForegroundColor" Value="White" />
+				<Setter Property="Shell.ShellTitleColor" Value="White" />
+				<Setter Property="Shell.ShellTabBarBackgroundColor" Value="MediumPurple" />
+				<Setter Property="Shell.ShellTabBarForegroundColor" Value="White" />
+				<Setter Property="Shell.ShellTabBarTitleColor" Value="White" />
+				<Setter Property="Shell.ShellTabBarUnselectedColor" Value="White" />
+			</Style>
+		</ResourceDictionary>
+	</Shell.Resources>
 
 	<Shell.FlyoutHeader>
 		<views:MenuHeader />
 	</Shell.FlyoutHeader>
-
-	<ShellItem Title="Home" Route="{x:Static navigation:NavigationRoutes.MainPage}">
-		<ShellContent ContentTemplate="{DataTemplate pages:MainPage}" />
-	</ShellItem>
 
 	<MenuItem
 		BindingContext="{x:Reference shell}"
 		Command="{Binding BindingContext.NavigateToAboutPageCommand}"
 		Text="About" />
 
-	<!--<ShellItem Title="Home">
-		<ShellSection>
-			<ShellContent >
-				<pages:MainPage />
-			</ShellContent>
-		</ShellSection>
-	</ShellItem>-->
 
-	<!--<ShellItem Title="About">
-		<ShellSection>
-			 don't create page on startup, only when navigated to (using ContentTemplate)
-			<ShellContent Route="{x:Static navigation:NavigationRoutes.AboutPage}"
-						  ContentTemplate="{DataTemplate pages:AboutPage}"/>
+	<ShellItem>
+		<ShellSection Title="Home" Route="{x:Static navigation:NavigationRoutes.HomePage}">
+			<ShellContent Title="Home" ContentTemplate="{DataTemplate pages:HomePage}" />
 		</ShellSection>
-	</ShellItem>-->
-	<!--<ShellContent Title="Item"
-				  Route="{x:Static navigation:NavigationRoutes.ItemPage}"
-                  ContentTemplate="{DataTemplate pages:ItemPage}" />-->
+		<ShellSection Title="Discover" Route="{x:Static navigation:NavigationRoutes.DiscoverPage}">
+			<ShellContent ContentTemplate="{DataTemplate pages:DiscoverPage}" />
+		</ShellSection>
+	</ShellItem>
+
+
+
+
 </Shell>

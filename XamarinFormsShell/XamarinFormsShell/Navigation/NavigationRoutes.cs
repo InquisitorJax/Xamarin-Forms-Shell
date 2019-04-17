@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XamarinFormsShell.Navigation
+﻿namespace XamarinFormsShell.Navigation
 {
-    public class NavigationRoutes
-    {
-		public const string MainPage = "home";
+	public class NavigationRoutes
+	{
+		public const string HomePage = "home";
+
+		public const string DiscoverPage = "discover";
 
 		public const string AboutPage = "about";
 
 		public const string ItemPage = "item";
-    }
+
+		public const string LoginPage = "login";
+
+	}
 }
