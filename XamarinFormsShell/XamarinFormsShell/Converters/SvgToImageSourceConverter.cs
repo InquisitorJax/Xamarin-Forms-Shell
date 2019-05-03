@@ -1,7 +1,7 @@
-﻿using System;
+﻿using FFImageLoading.Svg.Forms;
+using System;
 using System.Globalization;
 using Xamarin.Forms;
-using Xamarin.Forms.Svg;
 
 namespace XamarinFormsShell.Converters
 {
@@ -22,11 +22,11 @@ namespace XamarinFormsShell.Converters
 			}
 			if (size.HasValue)
 			{
-				return SvgImageSource.FromSvgResource(imageName, size.Value, size.Value);
+				return SvgImageSource.FromResource(imageName, GetType().Assembly, size.Value, size.Value);
 			}
 			else
 			{
-				return SvgImageSource.FromSvgResource(imageName);
+				return SvgImageSource.FromResource(imageName, GetType().Assembly);
 			}
 			
 		}

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using FFImageLoading.Svg.Forms;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinFormsShell.Core;
 using XamarinFormsShell.Navigation;
@@ -18,8 +19,6 @@ namespace XamarinFormsShell
 			RegisterDependencies(registry);
 
 			InitializeComponent();
-
-			Xamarin.Forms.Svg.SvgImageSource.RegisterAssembly();
 
 			MainPage = new AppShell();
 		}

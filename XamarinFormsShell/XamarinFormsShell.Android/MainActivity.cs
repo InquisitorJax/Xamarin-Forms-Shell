@@ -1,11 +1,8 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using FFImageLoading.Forms.Platform;
 
 namespace XamarinFormsShell.Droid
 {
@@ -22,7 +19,7 @@ namespace XamarinFormsShell.Droid
 			global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental");
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-			Xamarin.Forms.Svg.Droid.SvgImage.Init(this);
+			CachedImageRenderer.Init(true);
 
 			LoadApplication(new App());
 		}

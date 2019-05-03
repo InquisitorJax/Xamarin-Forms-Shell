@@ -149,11 +149,11 @@
     <PackageReference Include="Splat">
       <Version>7.0.8</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.6.929</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.346134-pre9" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.8" />
-    <PackageReference Include="Xamarin.Forms.Svg">
-      <Version>1.0.0-pre4</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinFormsShell\XamarinFormsShell.csproj">

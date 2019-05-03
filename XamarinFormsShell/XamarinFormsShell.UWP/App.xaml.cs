@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFImageLoading.Forms.Platform;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -54,6 +55,8 @@ namespace XamarinFormsShell.UWP
 
 				Xamarin.Forms.Forms.SetFlags("Shell_Experimental");
 				Xamarin.Forms.Forms.Init(e);
+
+				CachedImageRenderer.Init();
 
 				if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
