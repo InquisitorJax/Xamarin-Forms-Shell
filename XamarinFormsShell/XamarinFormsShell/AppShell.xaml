@@ -3,6 +3,7 @@
 	x:Class="XamarinFormsShell.AppShell"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:converters="clr-namespace:XamarinFormsShell.Converters"
 	xmlns:navigation="clr-namespace:XamarinFormsShell.Navigation"
 	xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
 	xmlns:views="clr-namespace:XamarinFormsShell.Views"
@@ -12,6 +13,7 @@
 	RouteScheme="app">
 	<Shell.Resources>
 		<ResourceDictionary>
+			<converters:SvgToImageSourceConverter x:Key="svg" />
 			<Style TargetType="ShellItem">
 				<Setter Property="Shell.ShellBackgroundColor" Value="MediumPurple" />
 				<Setter Property="Shell.ShellForegroundColor" Value="White" />
@@ -35,10 +37,16 @@
 
 
 	<ShellItem>
-		<ShellSection Title="Home" Route="{x:Static navigation:NavigationRoutes.HomePage}">
+		<ShellSection
+			Title="Home"
+			Icon="{Binding HomeIconName, Converter={StaticResource svg}}"
+			Route="{x:Static navigation:NavigationRoutes.HomePage}">
 			<ShellContent Title="Home" ContentTemplate="{DataTemplate pages:HomePage}" />
 		</ShellSection>
-		<ShellSection Title="Discover" Route="{x:Static navigation:NavigationRoutes.DiscoverPage}">
+		<ShellSection
+			Title="Discover"
+			Icon="{Binding SearchIconName, Converter={StaticResource svg}}"
+			Route="{x:Static navigation:NavigationRoutes.DiscoverPage}">
 			<ShellContent ContentTemplate="{DataTemplate pages:DiscoverPage}" />
 		</ShellSection>
 	</ShellItem>

@@ -19,7 +19,9 @@ namespace XamarinFormsShell
 
 			InitializeComponent();
 
-			MainPage = new AppShell();			
+			Xamarin.Forms.Svg.SvgImageSource.RegisterAssembly();
+
+			MainPage = new AppShell();
 		}
 
 		private void RegisterDependencies(IDependencyRegistry registry)
@@ -27,7 +29,7 @@ namespace XamarinFormsShell
 			registry.RegisterSingleton<NavigationService, INavigationService>();
 
 			//register views that need to be navigated with NavigateToAsync() ie. Not Root Shell pages
-			registry.Register<ItemPage, IView>(NavigationRoutes.ItemPage);			
+			registry.Register<ItemPage, IView>(NavigationRoutes.ItemPage);
 			registry.Register<AboutPage, IView>(NavigationRoutes.AboutPage);
 
 			//register view models for views
@@ -35,7 +37,7 @@ namespace XamarinFormsShell
 			registry.Register<ItemViewModel, IViewModel>(NavigationRoutes.ItemPage);
 			registry.Register<AboutViewModel, IViewModel>(NavigationRoutes.AboutPage);
 
-			
+
 		}
 
 		public static INavigationService Navigation => IoC.Resolve<INavigationService>();
