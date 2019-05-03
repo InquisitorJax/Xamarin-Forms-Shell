@@ -15,7 +15,20 @@ namespace XamarinFormsShell.Converters
 			}
 
 			string imageName = $"Resources.{value.ToString()}";
-			return SvgImageSource.FromSvgResource(imageName);
+			int? size = null;
+			if (parameter != null)
+			{
+				size = int.Parse(parameter.ToString());
+			}
+			if (size.HasValue)
+			{
+				return SvgImageSource.FromSvgResource(imageName, size.Value, size.Value);
+			}
+			else
+			{
+				return SvgImageSource.FromSvgResource(imageName);
+			}
+			
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -55,7 +55,7 @@ namespace XamarinFormsShell.UWP
 				Xamarin.Forms.Forms.SetFlags("Shell_Experimental");
 				Xamarin.Forms.Forms.Init(e);
 
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+				if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
                 }

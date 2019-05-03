@@ -24,7 +24,10 @@ namespace XamarinFormsShell.iOS
         {
 			global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental");
 			global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+			Xamarin.Forms.Svg.iOS.SvgImage.Init();
+
+			LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

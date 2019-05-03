@@ -39,13 +39,13 @@
 	<ShellItem>
 		<ShellSection
 			Title="Home"
-			Icon="{Binding HomeIconName, Converter={StaticResource svg}}"
+			Icon="{Binding HomeIconName, Converter={StaticResource svg}, ConverterParameter=30}"
 			Route="{x:Static navigation:NavigationRoutes.HomePage}">
 			<ShellContent Title="Home" ContentTemplate="{DataTemplate pages:HomePage}" />
 		</ShellSection>
 		<ShellSection
 			Title="Discover"
-			Icon="{Binding SearchIconName, Converter={StaticResource svg}}"
+			Icon="{Binding SearchIconName, Converter={StaticResource svg}, ConverterParameter=30}"
 			Route="{x:Static navigation:NavigationRoutes.DiscoverPage}">
 			<ShellContent ContentTemplate="{DataTemplate pages:DiscoverPage}" />
 		</ShellSection>
