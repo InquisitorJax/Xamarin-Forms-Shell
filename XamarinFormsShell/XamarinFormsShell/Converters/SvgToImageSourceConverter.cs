@@ -14,7 +14,7 @@ namespace XamarinFormsShell.Converters
 				return null;
 			}
 
-			string imageName = $"Resources.{value.ToString()}";
+			string imageName = $"XamarinFormsShell.Resources.{value.ToString()}";
 			int? size = null;
 			if (parameter != null)
 			{
@@ -22,11 +22,13 @@ namespace XamarinFormsShell.Converters
 			}
 			if (size.HasValue)
 			{
-				return SvgImageSource.FromResource(imageName, GetType().Assembly, size.Value, size.Value);
+				var source = SvgImageSource.FromResource(imageName, GetType().Assembly, size.Value, size.Value);
+				return source;
 			}
 			else
 			{
-				return SvgImageSource.FromResource(imageName, GetType().Assembly);
+				var source = SvgImageSource.FromResource(imageName, GetType().Assembly);
+				return source;
 			}
 			
 		}

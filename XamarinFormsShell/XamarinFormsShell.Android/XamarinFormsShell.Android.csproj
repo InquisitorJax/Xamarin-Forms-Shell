@@ -60,7 +60,7 @@
       <Version>7.0.8</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
-      <Version>2.4.6.929</Version>
+      <Version>2.4.8.956</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.346134-pre9" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />

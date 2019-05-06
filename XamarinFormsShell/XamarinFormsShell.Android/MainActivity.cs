@@ -20,6 +20,7 @@ namespace XamarinFormsShell.Droid
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
 			CachedImageRenderer.Init(true);
+			CachedImageRenderer.InitImageViewHandler();
 
 			LoadApplication(new App());
 		}

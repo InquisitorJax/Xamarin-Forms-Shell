@@ -25,6 +25,7 @@ namespace XamarinFormsShell.iOS
 
 			CachedImageRenderer.Init();
 			var ignore = typeof(SvgCachedImage);
+			CachedImageRenderer.InitImageSourceHandler();
 
 			LoadApplication(new App());
 
