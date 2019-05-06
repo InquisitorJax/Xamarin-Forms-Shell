@@ -3,18 +3,30 @@
 	x:Class="XamarinFormsShell.Pages.HomePage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:converters="clr-namespace:XamarinFormsShell.Converters"
+	xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
 	xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
 	xmlns:views="clr-namespace:XamarinFormsShell.Views">
 	<Shell.TitleView>
 		<views:CustomNavigationBar />
 	</Shell.TitleView>
 
+
 	<StackLayout Margin="10,0,10,20">
+		<StackLayout.Resources>
+			<converters:SvgToImageSourceConverter x:Key="svg" />
+		</StackLayout.Resources>
 		<!--  Place new controls here  -->
 		<Label
 			HorizontalOptions="Center"
 			Text="Welcome to Xamarin.Forms!"
 			VerticalOptions="CenterAndExpand" />
+
+		<Image
+			BackgroundColor="Purple"
+			HeightRequest="200"
+			Source="{Binding HomeIconName, Converter={StaticResource svg}, ConverterParameter=30}"
+			WidthRequest="200" />
 
 		<Button
 			BackgroundColor="#FF5500"

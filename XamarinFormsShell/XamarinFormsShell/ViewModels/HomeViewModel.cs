@@ -12,6 +12,8 @@ namespace XamarinFormsShell.ViewModels
 			Title = "Home Page";
 		}
 
+		public string HomeIconName => "home.svg";
+
 		private void NavigateToItemPage()
 		{
 			string id = "123";
