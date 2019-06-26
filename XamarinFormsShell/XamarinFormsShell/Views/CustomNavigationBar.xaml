@@ -23,6 +23,7 @@
 
 			<Label
 				Grid.Column="1"
+				TextColor="White"
 				HorizontalOptions="Center"
 				Text="{Binding Title}" />
 
