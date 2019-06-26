@@ -10,7 +10,7 @@
 	<Shell.Resources>
 		<ResourceDictionary>
 			<converters:SvgToImageSourceConverter x:Key="svg" />
-			<Style TargetType="ShellItem">
+			<Style TargetType="TabBar">
 				<Setter Property="Shell.BackgroundColor" Value="MediumPurple" />
 				<Setter Property="Shell.ForegroundColor" Value="White" />
 				<Setter Property="Shell.TitleColor" Value="White" />
