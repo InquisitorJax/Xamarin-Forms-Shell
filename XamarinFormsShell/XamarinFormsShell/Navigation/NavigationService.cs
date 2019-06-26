@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamarinFormsShell.Pages;
@@ -19,14 +18,7 @@ namespace XamarinFormsShell.Navigation
 	public class NavigationService : INavigationService
 	{
 		private bool _initialized;
-		//NOTE: these string should match what's been defined in the AppShell.xaml
-		private const string ROUTE_SCHEME = "app";
-		private const string ROUTE_HOST = "wibcilabs.com";
-		private const string ROUTE_BASE = "shellapp";
-
-		private const string ROUTE_MARKER = "[ROUTE]";
-		private string _shellNavTemplate = $"{ROUTE_SCHEME}://{ROUTE_HOST}/{ROUTE_BASE}/{ROUTE_MARKER}";
-
+		
 		private NavigableElement _navigationRoot;
 
 		private AppShell _shell => App.Current.MainPage as AppShell;
@@ -47,13 +39,12 @@ namespace XamarinFormsShell.Navigation
 			//TODO: Hook e.Cancel into viewmodel			
 		}
 
-		private async Task NavigateToShellRootAsync(string navigationRoute, Dictionary<string, string> args, bool animated = true)
+		private async Task NavigateShellAsync(string navigationRoute, Dictionary<string, string> args, bool animated = true)
 		{
-			string route = _shellNavTemplate.Replace(ROUTE_MARKER, navigationRoute);
 			var queryString = args.AsQueryString();
-			route = route + queryString;
-			Debug.WriteLine($"Shell Navigating to {route}");
-			await _shell.GoToAsync(route, animated);
+			navigationRoute = navigationRoute + queryString;
+			Debug.WriteLine($"Shell Navigating to {navigationRoute}");
+			await _shell.GoToAsync(navigationRoute, true);
 		}
 
 		public async Task GoBackAsync(bool fromModal = false)
@@ -79,7 +70,7 @@ namespace XamarinFormsShell.Navigation
 			if (page == null)
 			{
 				Debug.WriteLine($"Could not resolve view for {navigationRoute}: Assuming this is a shell route...");
-				await NavigateToShellRootAsync(navigationRoute, args, options.Animated);
+				await NavigateShellAsync(navigationRoute, args, options.Animated);
 				return;
 			}
 
