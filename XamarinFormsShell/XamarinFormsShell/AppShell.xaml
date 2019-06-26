@@ -1,27 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-	x:Class="XamarinFormsShell.AppShell"
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:converters="clr-namespace:XamarinFormsShell.Converters"
-	xmlns:navigation="clr-namespace:XamarinFormsShell.Navigation"
-	xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
-	xmlns:views="clr-namespace:XamarinFormsShell.Views"
-	x:Name="shell"
-	Route="shellapp"
-	RouteHost="wibcilabs.com"
-	RouteScheme="app">
+<Shell x:Class="XamarinFormsShell.AppShell"
+       xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:converters="clr-namespace:XamarinFormsShell.Converters"
+       xmlns:navigation="clr-namespace:XamarinFormsShell.Navigation"
+       xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
+       xmlns:views="clr-namespace:XamarinFormsShell.Views"
+       x:Name="shell">
 	<Shell.Resources>
 		<ResourceDictionary>
 			<converters:SvgToImageSourceConverter x:Key="svg" />
 			<Style TargetType="ShellItem">
-				<Setter Property="Shell.ShellBackgroundColor" Value="MediumPurple" />
-				<Setter Property="Shell.ShellForegroundColor" Value="White" />
-				<Setter Property="Shell.ShellTitleColor" Value="White" />
-				<Setter Property="Shell.ShellTabBarBackgroundColor" Value="MediumPurple" />
-				<Setter Property="Shell.ShellTabBarForegroundColor" Value="White" />
-				<Setter Property="Shell.ShellTabBarTitleColor" Value="White" />
-				<Setter Property="Shell.ShellTabBarUnselectedColor" Value="White" />
+				<Setter Property="Shell.BackgroundColor" Value="MediumPurple" />
+				<Setter Property="Shell.ForegroundColor" Value="White" />
+				<Setter Property="Shell.TitleColor" Value="White" />
+				<Setter Property="Shell.TabBarBackgroundColor" Value="MediumPurple" />
+				<Setter Property="Shell.TabBarForegroundColor" Value="White" />
+				<Setter Property="Shell.TabBarTitleColor" Value="White" />
+				<Setter Property="Shell.TabBarUnselectedColor" Value="White" />
 			</Style>
 		</ResourceDictionary>
 	</Shell.Resources>
@@ -30,22 +26,21 @@
 		<views:MenuHeader />
 	</Shell.FlyoutHeader>
 
-	<MenuItem
-		BindingContext="{x:Reference shell}"
-		Command="{Binding BindingContext.NavigateToAboutPageCommand}"
-		Text="About" />
+	<MenuItem BindingContext="{x:Reference shell}"
+	          Command="{Binding BindingContext.NavigateToAboutPageCommand}"
+	          Text="About" />
 
 
-	<ShellItem>
+	<TabBar>
 		<!--  Icon="{Binding HomeIconName, Converter={StaticResource svg}, ConverterParameter=30}"  -->
-		<ShellSection Title="Home" Route="{x:Static navigation:NavigationRoutes.HomePage}">
+		<Tab Title="Home" Route="{x:Static navigation:NavigationRoutes.HomePage}">
 			<ShellContent Title="Home" ContentTemplate="{DataTemplate pages:HomePage}" />
-		</ShellSection>
+		</Tab>
 		<!--  Icon="{Binding SearchIconName, Converter={StaticResource svg}, ConverterParameter=30}"  -->
-		<ShellSection Title="Discover" Route="{x:Static navigation:NavigationRoutes.DiscoverPage}">
+		<Tab Title="Discover" Route="{x:Static navigation:NavigationRoutes.DiscoverPage}">
 			<ShellContent ContentTemplate="{DataTemplate pages:DiscoverPage}" />
-		</ShellSection>
-	</ShellItem>
+		</Tab>
+	</TabBar>
 
 
 
