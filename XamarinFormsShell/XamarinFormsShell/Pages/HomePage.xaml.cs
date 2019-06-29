@@ -1,4 +1,5 @@
-﻿using XamarinFormsShell.Navigation;
+﻿using System.Diagnostics;
+using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.Pages
 {
@@ -12,5 +13,15 @@ namespace XamarinFormsShell.Pages
 		}
 
 		protected override string NavigationRoute => NavigationRoutes.HomePage;
+
+		private void SwipeGestureRecognizer_Swiped(object sender, Xamarin.Forms.SwipedEventArgs e)
+		{
+			this.DisplayAlert("Swiped Event", "Swiped Left", null);
+		}
+
+		private void SwipeGestureRecognizer_Swiped_1(object sender, Xamarin.Forms.SwipedEventArgs e)
+		{
+			this.DisplayAlert("Swiped Right", "Swiped Right", null);
+		}
 	}
 }
