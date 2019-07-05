@@ -154,7 +154,7 @@
     <PackageReference Include="Splat">
       <Version>7.3.7</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.497661" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Xamarin.Forms.Svg">
       <Version>1.0.0-pre4</Version>
     </PackageReference>
