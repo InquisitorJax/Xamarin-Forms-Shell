@@ -24,5 +24,14 @@ namespace XamarinFormsShell
 			Navigation.NavigateToAsync(NavigationRoutes.AboutPage, options: new NavigationOptions(true));
 		}
 
+		private int _currentTabIndex;
+
+		public int CurrentTabIndex
+		{
+			get { return _currentTabIndex; }
+			set { SetProperty(ref _currentTabIndex, value); }
+		}
+
+
 	}
 }

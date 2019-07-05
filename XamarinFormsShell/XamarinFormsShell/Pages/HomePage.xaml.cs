@@ -21,7 +21,7 @@ namespace XamarinFormsShell.Pages
 
 		private void SwipeGestureRecognizer_Swiped_1(object sender, Xamarin.Forms.SwipedEventArgs e)
 		{
-			this.DisplayAlert("Swiped Right", "Swiped Right", null);
+			this.DisplayAlert("Swiped Right", "Swiped Right", "cancel");
 		}
 	}
 }

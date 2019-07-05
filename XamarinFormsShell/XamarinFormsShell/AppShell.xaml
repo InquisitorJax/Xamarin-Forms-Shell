@@ -2,6 +2,7 @@
 <Shell x:Class="XamarinFormsShell.AppShell"
        xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:controls="clr-namespace:XamarinFormsShell.Controls"
        xmlns:converters="clr-namespace:XamarinFormsShell.Converters"
        xmlns:navigation="clr-namespace:XamarinFormsShell.Navigation"
        xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
@@ -31,7 +32,7 @@
 	          Text="About" />
 
 
-	<TabBar>
+	<controls:AppTabBar TabIndex="{Binding CurrentTabIndex}">
 		<Tab Title="Home"
 		     Icon="{Binding HomeIconName, Converter={StaticResource svg}, ConverterParameter=30}"
 		     Route="{x:Static navigation:NavigationRoutes.HomePage}">
@@ -42,7 +43,7 @@
 		     Route="{x:Static navigation:NavigationRoutes.DiscoverPage}">
 			<ShellContent ContentTemplate="{DataTemplate pages:DiscoverPage}" />
 		</Tab>
-	</TabBar>
+	</controls:AppTabBar>
 
 
 
