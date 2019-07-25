@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using XamarinFormsShell.Models;
 using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.ViewModels
@@ -10,6 +12,12 @@ namespace XamarinFormsShell.ViewModels
 		{
 			NavigateToItemPageCommand = new DelegateCommand(NavigateToItemPage);
 			Title = "Home Page";
+
+			People = new ObservableCollection<Person>
+			{
+				new Person {Name = "Person 1"},
+				new Person {Name = "Person 2"},
+			};
 		}
 
 		private void NavigateToItemPage()
@@ -30,6 +38,9 @@ namespace XamarinFormsShell.ViewModels
 			get { return _title; }
 			set { SetProperty(ref _title, value); }
 		}
+
+
+		public ObservableCollection<Person> People { get; }
 
 		public DelegateCommand NavigateToItemPageCommand { get; private set; }
 	}

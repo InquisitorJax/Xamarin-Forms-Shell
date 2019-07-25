@@ -21,6 +21,10 @@
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
 
+		<!-- This adds zero elevation to the app toolbar -->
+		<item name="elevation">0dp</item>
+		
+
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
 

@@ -9,20 +9,32 @@
 	</Shell.TitleView>
 
 	<Grid>
-		<StackLayout Margin="10,0,10,20">
+		<StackLayout>
+			<Grid BackgroundColor="#2196F3" HeightRequest="100" />
 			<!--  Place new controls here  -->
-			<Label HorizontalOptions="Center"
-			       Text="Welcome to Xamarin.Forms!"
-			       VerticalOptions="CenterAndExpand" />
+			<StackLayout Margin="12" BindableLayout.ItemsSource="{Binding People}">
+				<BindableLayout.ItemTemplate>
+					<DataTemplate>
+						<StackLayout Margin="0,12,0,0">
+							<Label HorizontalOptions="Center" Text="{Binding Name}" />
+							<BoxView BackgroundColor="Gray" HeightRequest="1" />
+						</StackLayout>
+					</DataTemplate>
+				</BindableLayout.ItemTemplate>
 
-			<Button BackgroundColor="#FF5500"
-			        Command="{Binding NavigateToItemPageCommand}"
-			        CornerRadius="25"
-			        Text="Navigate to Item Page"
-			        TextColor="White" />
+			</StackLayout>
+
 
 
 		</StackLayout>
+		<Button Margin="12"
+		        BackgroundColor="#FF5500"
+		        Command="{Binding NavigateToItemPageCommand}"
+		        CornerRadius="25"
+		        Text="Navigate to Item Page"
+		        TextColor="White"
+		        VerticalOptions="End" />
+
 		<Grid.GestureRecognizers>
 			<SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped" />
 			<SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_1" />
