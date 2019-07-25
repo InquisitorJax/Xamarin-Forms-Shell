@@ -24,9 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Core" Version="7.1.0.431" />
+    <PackageReference Include="Prism.Core" Version="7.2.0.1367" />
     <PackageReference Include="Splat" Version="7.3.7" />
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
     <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.0-pre4" />
   </ItemGroup>
 
