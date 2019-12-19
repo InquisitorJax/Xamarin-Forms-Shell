@@ -1,14 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-	x:Class="XamarinFormsShell.Pages.DiscoverPage"
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+<pages:MvvmContentPage x:Class="XamarinFormsShell.Pages.DiscoverPage"
+                       xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
+                       Shell.NavBarIsVisible="{Binding ShowNavBars}"
+                       Shell.TabBarIsVisible="{Binding ShowNavBars}">
+	<Shell.TitleView>
+		<Grid>
+			<Label HorizontalOptions="Center"
+			       Text="TITLE VIEW"
+			       TextColor="White"
+			       VerticalOptions="Center" />
+		</Grid>
+	</Shell.TitleView>
 	<ContentPage.Content>
-		<StackLayout>
-			<Label
-				HorizontalOptions="CenterAndExpand"
-				Text="DISCOVER THE FORMS SHELL!"
-				VerticalOptions="CenterAndExpand" />
-		</StackLayout>
+		<Grid>
+			<Label HorizontalOptions="CenterAndExpand"
+			       Text="Top Label"
+			       VerticalOptions="Start" />
+			<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+				<Label HorizontalOptions="CenterAndExpand" Text="DISCOVER THE FORMS SHELL!" />
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Show Nav Bars" />
+					<Switch IsToggled="{Binding ShowNavBars}" />
+				</StackLayout>
+			</StackLayout>
+			<Label HorizontalOptions="CenterAndExpand"
+			       Text="Bottom Label"
+			       VerticalOptions="End" />
+
+		</Grid>
 	</ContentPage.Content>
-</ContentPage>
+</pages:MvvmContentPage>

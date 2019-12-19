@@ -36,7 +36,7 @@ namespace XamarinFormsShell
 			registry.Register<HomeViewModel, IViewModel>(NavigationRoutes.HomePage);
 			registry.Register<ItemViewModel, IViewModel>(NavigationRoutes.ItemPage);
 			registry.Register<AboutViewModel, IViewModel>(NavigationRoutes.AboutPage);
-
+			registry.Register<DiscoverViewModel, IViewModel>(NavigationRoutes.DiscoverPage);
 
 		}
 
