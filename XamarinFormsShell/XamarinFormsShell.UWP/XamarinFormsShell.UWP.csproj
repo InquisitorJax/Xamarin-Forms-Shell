@@ -144,13 +144,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Core">
-      <Version>7.2.0.1367</Version>
+      <Version>7.2.0.1422</Version>
     </PackageReference>
     <PackageReference Include="Splat">
-      <Version>7.3.7</Version>
+      <Version>9.3.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.8" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
     <PackageReference Include="Xamarin.Forms.Svg">
       <Version>1.0.0-pre4</Version>
     </PackageReference>
