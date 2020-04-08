@@ -16,3 +16,5 @@
 /.vs/XamarinFormsShell/v16/Server/sqlite3
 /.vs/XamarinFormsShell/v16/.suo
 /XamarinFormsShell/XamarinFormsShell.iOS/bin/iPhone/Debug
+/XamarinFormsShell/XamarinFormsShell.iOS/bin/iPhone/Release
+/XamarinFormsShell/XamarinFormsShell/bin/Release/netstandard2.0
