@@ -3,7 +3,8 @@
                        xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
-                       xmlns:views="clr-namespace:XamarinFormsShell.Views">
+                       xmlns:views="clr-namespace:XamarinFormsShell.Views"
+                       BackgroundColor="{DynamicResource WindowBackground}">
 	<Shell.TitleView>
 		<views:CustomNavigationBar />
 	</Shell.TitleView>

@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinFormsShell.App">
-    <Application.Resources>
-
-    </Application.Resources>
+<Application x:Class="XamarinFormsShell.App"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+	<Application.Resources>
+		<ResourceDictionary>
+			<AppThemeColor x:Key="WindowBackground"
+			               Dark="#222222"
+			               Light="#F5F5F5" />
+		</ResourceDictionary>
+	</Application.Resources>
 </Application>

@@ -64,6 +64,8 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchExtraArgs>--optimize=experimental-xforms-product-type --warn-on-type-ref=UIKit.UIWebView</MtouchExtraArgs>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchUseLlvm>false</MtouchUseLlvm>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -153,9 +155,9 @@
       <Version>7.2.0.1422</Version>
     </PackageReference>
     <PackageReference Include="Splat">
-      <Version>9.4.1</Version>
+      <Version>9.4.5</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.530" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
     <PackageReference Include="Xamarin.Forms.Svg">
       <Version>1.0.3</Version>
     </PackageReference>

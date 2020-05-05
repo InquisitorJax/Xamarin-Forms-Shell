@@ -147,9 +147,9 @@
       <Version>7.2.0.1422</Version>
     </PackageReference>
     <PackageReference Include="Splat">
-      <Version>9.4.1</Version>
+      <Version>9.4.5</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.530" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.10" />
     <PackageReference Include="Xamarin.Forms.Svg">
       <Version>1.0.3</Version>

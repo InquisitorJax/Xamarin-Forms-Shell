@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<pages:MvvmContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
-             x:Class="XamarinFormsShell.Pages.AboutPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Xamarin Forms Shell - ABOUT"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-			<Button Text="Done"
-					Command="{Binding CloseCommand}"/>
+<pages:MvvmContentPage x:Class="XamarinFormsShell.Pages.AboutPage"
+                       xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
+                       BackgroundColor="{DynamicResource WindowBackground}">
+	<ContentPage.Content>
+		<StackLayout>
+			<Label HorizontalOptions="CenterAndExpand"
+			       Text="Xamarin Forms Shell - ABOUT"
+			       VerticalOptions="CenterAndExpand" />
+			<Button Command="{Binding CloseCommand}" Text="Done" />
 		</StackLayout>
-    </ContentPage.Content>
+	</ContentPage.Content>
 </pages:MvvmContentPage>
