@@ -1,10 +1,6 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
 namespace XamarinFormsShell.Droid
@@ -19,7 +15,8 @@ namespace XamarinFormsShell.Droid
 
 			base.OnCreate(savedInstanceState);
 
-			global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental");
+			global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "AppTheme_Experimental");
+
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
 			Xamarin.Forms.Svg.Droid.SvgImage.Init(this);

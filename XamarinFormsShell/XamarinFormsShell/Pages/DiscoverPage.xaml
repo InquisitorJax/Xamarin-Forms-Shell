@@ -3,6 +3,7 @@
                        xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
+                       BackgroundColor="{DynamicResource WindowBackground}"
                        Shell.NavBarIsVisible="{Binding ShowNavBars}"
                        Shell.TabBarIsVisible="{Binding ShowNavBars}">
 	<Shell.TitleView>
@@ -23,6 +24,10 @@
 				<StackLayout Orientation="Horizontal">
 					<Label Text="Show Nav Bars" />
 					<Switch IsToggled="{Binding ShowNavBars}" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="{AppThemeBinding Dark='Toggle to show light theme', Light='Toggle to show dark theme'}" />
+					<Switch IsToggled="{Binding ShowDarkTheme}" />
 				</StackLayout>
 			</StackLayout>
 			<Label HorizontalOptions="CenterAndExpand"

@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application x:Class="XamarinFormsShell.App"
              xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:XamarinFormsShell.Pages">
 	<Application.Resources>
+		<!--  DEFAULT THEME  -->
+		<ResourceDictionary Source="Resources/LightTheme.xaml" />
 		<ResourceDictionary>
-			<AppThemeColor x:Key="WindowBackground"
-			               Dark="#222222"
-			               Light="#F5F5F5" />
+			<Style TargetType="Label">
+				<Setter Property="TextColor" Value="{DynamicResource LabelTextColor}" />
+			</Style>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

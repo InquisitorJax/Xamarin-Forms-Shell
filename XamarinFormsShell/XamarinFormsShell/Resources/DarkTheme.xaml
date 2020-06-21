@@ -1,0 +1,9 @@
+﻿<ResourceDictionary x:Class="XamarinFormsShell.Resources.DarkTheme"
+                    xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<!--  Common Colors  -->
+	<Color x:Key="WindowBackground">#000000</Color>
+	<Color x:Key="LabelTextColor">#FFFFFF</Color>
+
+</ResourceDictionary>

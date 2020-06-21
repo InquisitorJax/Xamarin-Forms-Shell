@@ -3,6 +3,7 @@ using Xamarin.Forms.Xaml;
 using XamarinFormsShell.Core;
 using XamarinFormsShell.Navigation;
 using XamarinFormsShell.Pages;
+using XamarinFormsShell.Services;
 using XamarinFormsShell.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -22,11 +23,17 @@ namespace XamarinFormsShell
 			Xamarin.Forms.Svg.SvgImageSource.RegisterAssembly();
 
 			MainPage = new AppShell();
+
+			Application.Current.RequestedThemeChanged += (s, a) =>
+			{
+				// Respond to the theme change if setting is system theme
+			};
 		}
 
 		private void RegisterDependencies(IDependencyRegistry registry)
 		{
 			registry.RegisterSingleton<NavigationService, INavigationService>();
+			registry.RegisterSingleton<ThemeService, IThemeService>();
 
 			//register views that need to be navigated with NavigateToAsync() ie. Not Root Shell pages
 			registry.Register<ItemPage, IView>(NavigationRoutes.ItemPage);
@@ -37,7 +44,6 @@ namespace XamarinFormsShell
 			registry.Register<ItemViewModel, IViewModel>(NavigationRoutes.ItemPage);
 			registry.Register<AboutViewModel, IViewModel>(NavigationRoutes.AboutPage);
 			registry.Register<DiscoverViewModel, IViewModel>(NavigationRoutes.DiscoverPage);
-
 		}
 
 		public static INavigationService Navigation => IoC.Resolve<INavigationService>();
