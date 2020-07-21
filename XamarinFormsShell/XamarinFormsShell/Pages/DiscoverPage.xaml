@@ -10,7 +10,7 @@
 		<Grid>
 			<Label HorizontalOptions="Center"
 			       Text="TITLE VIEW"
-			       TextColor="White"
+			       TextColor="{AppThemeBinding Dark=White, Light=Black}"
 			       VerticalOptions="Center" />
 		</Grid>
 	</Shell.TitleView>
