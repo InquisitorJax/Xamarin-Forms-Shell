@@ -24,15 +24,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
-    <PackageReference Include="Splat" Version="9.5.6" />
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1142" />
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+    <PackageReference Include="Splat" Version="9.8.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />
     <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\LoginOptionsPage.xaml.cs">
+      <DependentUpon>LoginOptionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Resources\DarkTheme.xaml.cs">
       <DependentUpon>DarkTheme.xaml</DependentUpon>

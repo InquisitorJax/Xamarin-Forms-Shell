@@ -24,17 +24,22 @@
 				</BindableLayout.ItemTemplate>
 
 			</StackLayout>
-
-
-
 		</StackLayout>
-		<Button Margin="12"
-		        BackgroundColor="#FF5500"
-		        Command="{Binding NavigateToItemPageCommand}"
-		        CornerRadius="25"
-		        Text="Navigate to Item Page"
-		        TextColor="White"
-		        VerticalOptions="End" />
+		<StackLayout VerticalOptions="End">
+			<Button Margin="12"
+			        BackgroundColor="#FF5500"
+			        Command="{Binding NavigateToLoginCommand}"
+			        CornerRadius="25"
+			        Text="Navigate to Modal Login"
+			        TextColor="White" />
+
+			<Button Margin="12"
+			        BackgroundColor="#FF5500"
+			        Command="{Binding NavigateToItemPageCommand}"
+			        CornerRadius="25"
+			        Text="Navigate to Item Page"
+			        TextColor="White" />
+		</StackLayout>
 
 		<Grid.GestureRecognizers>
 			<SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped" />

@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using XamarinFormsShell.Models;
 using XamarinFormsShell.Navigation;
 
@@ -11,6 +12,7 @@ namespace XamarinFormsShell.ViewModels
 		public HomeViewModel()
 		{
 			NavigateToItemPageCommand = new DelegateCommand(NavigateToItemPage);
+			NavigateToLoginCommand = new DelegateCommand(NavigateToLoginPage);
 			Title = "Home Page";
 
 			People = new ObservableCollection<Person>
@@ -31,6 +33,11 @@ namespace XamarinFormsShell.ViewModels
 			Navigation.NavigateToAsync(NavigationRoutes.ItemPage, args);
 		}
 
+		private void NavigateToLoginPage()
+		{
+			Navigation.NavigateToAsync(NavigationRoutes.LoginPage, options: new NavigationOptions(modal: true));
+		}
+
 		private string _title;
 
 		public string Title
@@ -42,6 +49,7 @@ namespace XamarinFormsShell.ViewModels
 
 		public ObservableCollection<Person> People { get; }
 
-		public DelegateCommand NavigateToItemPageCommand { get; private set; }
+		public ICommand NavigateToItemPageCommand { get; private set; }
+		public ICommand NavigateToLoginCommand { get; private set; }
 	}
 }

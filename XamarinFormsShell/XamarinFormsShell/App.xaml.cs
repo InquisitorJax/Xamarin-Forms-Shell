@@ -38,12 +38,17 @@ namespace XamarinFormsShell
 			//register views that need to be navigated with NavigateToAsync() ie. Not Root Shell pages
 			registry.Register<ItemPage, IView>(NavigationRoutes.ItemPage);
 			registry.Register<AboutPage, IView>(NavigationRoutes.AboutPage);
+			registry.Register<LoginPage, IView>(NavigationRoutes.LoginPage);
+			registry.Register<LoginOptionsPage, IView>(NavigationRoutes.LoginOptionsPage);
 
 			//register view models for views
 			registry.Register<HomeViewModel, IViewModel>(NavigationRoutes.HomePage);
 			registry.Register<ItemViewModel, IViewModel>(NavigationRoutes.ItemPage);
 			registry.Register<AboutViewModel, IViewModel>(NavigationRoutes.AboutPage);
+			registry.Register<LoginViewModel, IViewModel>(NavigationRoutes.LoginPage);
+			registry.Register<LoginOptionsViewModel, IViewModel>(NavigationRoutes.LoginOptionsPage);
 			registry.Register<DiscoverViewModel, IViewModel>(NavigationRoutes.DiscoverPage);
+			
 		}
 
 		public static INavigationService Navigation => IoC.Resolve<INavigationService>();

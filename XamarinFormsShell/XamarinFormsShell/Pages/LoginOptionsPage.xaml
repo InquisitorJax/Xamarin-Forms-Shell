@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:MvvmContentPage x:Class="XamarinFormsShell.Pages.LoginOptionsPage"
+                       xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:pages="clr-namespace:XamarinFormsShell.Pages"
+                       Opacity="0"
+                       Shell.PresentationMode="Animated">
+	<ContentPage.Content>
+		<StackLayout>
+			<Label HorizontalOptions="CenterAndExpand"
+			       Text="Select an option"
+			       VerticalOptions="CenterAndExpand" />
+			<Button Margin="12"
+			        BackgroundColor="#FF5500"
+			        Command="{Binding SelectOptionCommand}"
+			        CornerRadius="25"
+			        Text="OPTION 1"
+			        TextColor="White" />
+			<Button Margin="12"
+			        BackgroundColor="#FF5500"
+			        Command="{Binding SelectOptionCommand}"
+			        CornerRadius="25"
+			        Text="OPTION 2"
+			        TextColor="White" />
+
+			<Button Margin="12"
+			        BackgroundColor="Green"
+			        Command="{Binding BackToLoginCommand}"
+			        CornerRadius="25"
+			        Text="Back to Login"
+			        TextColor="White" />
+
+
+		</StackLayout>
+	</ContentPage.Content>
+</pages:MvvmContentPage>

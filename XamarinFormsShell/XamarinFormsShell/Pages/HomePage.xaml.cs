@@ -1,10 +1,11 @@
-﻿using System.Diagnostics;
-using XamarinFormsShell.Navigation;
+﻿using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.Pages
 {
 	public partial class HomePage : MvvmContentPage
 	{
+
+		
 		public HomePage()
 		{
 			InitializeComponent();

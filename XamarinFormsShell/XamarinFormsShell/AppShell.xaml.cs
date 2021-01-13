@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFormsShell.Navigation;
+using XamarinFormsShell.Pages;
 
 namespace XamarinFormsShell
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AppShell : Xamarin.Forms.Shell
+	public partial class AppShell : Shell
 	{
 		public static readonly TimeSpan TimeFlyoutCloses = TimeSpan.FromSeconds(0.5f);
 
@@ -14,6 +17,8 @@ namespace XamarinFormsShell
 
 			BindingContext = new AppShellViewModel();
 			InitializeComponent();
+
+			Routing.RegisterRoute(NavigationRoutes.LoginPage, typeof(LoginPage));
 		}
 
 		internal async Task CloseFlyoutAsync()

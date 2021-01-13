@@ -12,16 +12,19 @@ namespace XamarinFormsShell.Navigation
 
 		Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null);
 
-		Task GoBackAsync(bool fromModal = false);
+		Task GoBackAsync(bool popToRoot = false);
 	}
 
 	public class NavigationService : INavigationService
 	{
+		// doc: https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/navigation
+
 		private bool _initialized;
 		
 		private NavigableElement _navigationRoot;
 
 		private AppShell _shell => App.Current.MainPage as AppShell;
+		private NavigationPage _modalNavigation;
 
 		private NavigableElement NavigationRoot
 		{
@@ -44,24 +47,21 @@ namespace XamarinFormsShell.Navigation
 			var queryString = args.AsQueryString();
 			navigationRoute = navigationRoute + queryString;
 			Debug.WriteLine($"Shell Navigating to {navigationRoute}");
-			await _shell.GoToAsync(navigationRoute, true);
+			await _shell.GoToAsync(navigationRoute, animated);
 		}
 
-		public async Task GoBackAsync(bool fromModal = false)
+		public async Task GoBackAsync(bool popToRoot = false)
 		{
-			if (!fromModal)
+			if (popToRoot)
 			{
-				await NavigationRoot.Navigation.PopAsync();
+				await Shell.Current.Navigation.PopToRootAsync(false);
 			}
-			else
-			{
-				await NavigationRoot.Navigation.PopModalAsync();
-			}
+
+			await Shell.Current.GoToAsync("..");
 		}
 
 		public async Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null)
 		{
-
 			IView view = App.IoC.Resolve<IView>(navigationRoute);
 			var page = view as Page;
 

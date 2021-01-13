@@ -5,16 +5,19 @@ using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.ViewModels
 {
-	public class LoginViewModel : ViewModelBase
+	public class LoginOptionsViewModel : ViewModelBase
 	{
 
-		public LoginViewModel()
+		public LoginOptionsViewModel()
 		{
-			LoginCommand = new DelegateCommand(Login);
+			SelectOptionCommand = new DelegateCommand(SelectOption);
+			BackToLoginCommand = new DelegateCommand(GoBackToLogin);
 		}
 
 
-		public ICommand LoginCommand { get; }
+		public ICommand SelectOptionCommand { get; }
+
+		public ICommand BackToLoginCommand { get; }
 
 		private string _username;
 
@@ -24,7 +27,6 @@ namespace XamarinFormsShell.ViewModels
 			set { SetProperty(ref _username, value); }
 		}
 
-
 		private string _password;
 
 		public string Password
@@ -33,11 +35,14 @@ namespace XamarinFormsShell.ViewModels
 			set { SetProperty(ref _password, value); }
 		}
 
-		private void Login()
+		private void SelectOption()
 		{
-			Navigation.NavigateToAsync(NavigationRoutes.LoginOptionsPage, options: new NavigationOptions(animated: false));
+			Navigation.GoBackAsync(popToRoot: true);
 		}
 
-
+		private void GoBackToLogin()
+		{
+			Navigation.GoBackAsync();
+		}
 	}
 }

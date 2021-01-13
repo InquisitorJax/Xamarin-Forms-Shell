@@ -12,5 +12,7 @@
 
 		public const string LoginPage = "login";
 
+		public const string LoginOptionsPage = "loginOptions";
+
 	}
 }
