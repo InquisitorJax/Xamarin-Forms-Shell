@@ -8,7 +8,7 @@ namespace XamarinFormsShell.Navigation
 {
 	public interface INavigationService
 	{
-		void Initialize(NavigableElement navigationRootPage);
+		void Initialize(NavigableElement navigationRootPage, List<string> modalNavigationHostRoutes);
 
 		Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null);
 
@@ -25,6 +25,7 @@ namespace XamarinFormsShell.Navigation
 
 		private AppShell _shell => App.Current.MainPage as AppShell;
 		private NavigationPage _modalNavigation;
+		private List<string> _modalNavigationHostRoutes = new List<string>();
 
 		private NavigableElement NavigationRoot
 		{
@@ -54,10 +55,19 @@ namespace XamarinFormsShell.Navigation
 		{
 			if (popToRoot)
 			{
-				await Shell.Current.Navigation.PopToRootAsync(false);
+				await Shell.Current.Navigation.PopToRootAsync();
+				return;
 			}
 
-			await Shell.Current.GoToAsync("..");
+			if (_modalNavigation != null)
+			{
+				await _modalNavigation.Navigation.PopAsync();
+			}
+			else
+			{
+				await Shell.Current.GoToAsync("..");
+			}
+			
 		}
 
 		public async Task NavigateToAsync(string navigationRoute, Dictionary<string, string> args = null, NavigationOptions options = null)
@@ -86,19 +96,45 @@ namespace XamarinFormsShell.Navigation
 
 			if (!options.Modal)
 			{
-				await NavigationRoot.Navigation.PushAsync(page, options.Animated).ConfigureAwait(false);
+				if (_modalNavigation != null)
+				{
+					await _modalNavigation.Navigation.PushAsync(page, options.Animated).ConfigureAwait(false);
+				}
+				else
+				{
+					await NavigationRoot.Navigation.PushAsync(page, options.Animated).ConfigureAwait(false);
+				}
 			}
 			else
 			{
+				if (_modalNavigationHostRoutes.Contains(navigationRoute))
+				{
+					// this is for a modal page that would like to navigate to other pages in it's own nav stack
+					_modalNavigation = new NavigationPage(page);
+					_modalNavigation.Disappearing += ModalNavigation_Disappearing;
+					page = _modalNavigation;
+				}
 				await NavigationRoot.Navigation.PushModalAsync(page, options.Animated).ConfigureAwait(false);
 			}
 		}
 
-		public void Initialize(NavigableElement navigationRootPage)
+		private void ModalNavigation_Disappearing(object sender, System.EventArgs e)
+		{
+			_modalNavigation.Disappearing -= ModalNavigation_Disappearing;
+			_modalNavigation = null;
+			Debug.WriteLine($"Modal Navigation Host is closing");
+		}
+
+		public void Initialize(NavigableElement navigationRootPage, List<string> modalNavigationHostRoutes)
 		{
 			if (_initialized)
 			{
 				return;
+			}
+
+			if (modalNavigationHostRoutes != null)
+			{
+				_modalNavigationHostRoutes = modalNavigationHostRoutes;
 			}
 
 			_initialized = true;

@@ -1,16 +1,20 @@
-﻿using XamarinFormsShell.Navigation;
+﻿using System.Collections.Generic;
+using XamarinFormsShell.Navigation;
 
 namespace XamarinFormsShell.Pages
 {
 	public partial class HomePage : MvvmContentPage
 	{
-
-		
 		public HomePage()
 		{
 			InitializeComponent();
 
-			App.Navigation.Initialize(this);
+			var modalHosts = new List<string>
+			{
+				NavigationRoutes.LoginPage
+			};
+
+			App.Navigation.Initialize(this, modalHosts);
 		}
 
 		protected override string NavigationRoute => NavigationRoutes.HomePage;
